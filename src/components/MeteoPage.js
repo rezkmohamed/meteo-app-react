@@ -4,12 +4,6 @@ import { fetchDayForecastInstance } from '../services/meteo-api';
 import { useState, useEffect } from 'react';
 
 const MeteoPage = () => {
-    // var today = new Date();
-    // var dd = String(today.getDate()).padStart(2, '0');
-    // var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-    // var yyyy = today.getFullYear();
-    // const dateOfToday = `${yyyy}-${mm}-${dd}`;
-    // console.log(dateOfToday);
     const hour = new Date().getHours();
     const mins = new Date().getMinutes();
     const [meteoObj, setMeteoObj] = useState(null);
@@ -51,14 +45,12 @@ const MeteoPage = () => {
 
                                 <div className="d-flex flex-column text-center mt-5 mb-4">
                                 <h6 className="display-4 mb-0 font-weight-bold" style={{"color": "#1C2331"}}> {meteoObj.temperature}°C </h6>
-                                {/* <span className="small" style={{"color": "#868B94"}}>Stormy</span> */}
                                 </div>
 
                                 <div className="d-flex align-items-center">
                                 <div className="flex-grow-1" style={{"fontSize": "1rem"}}>
                                     <div><i className="fas fa-wind fa-fw" style={{"color": "#868B94"}}></i> <span className="ms-1"> {meteoObj.wind_strength} km/h </span></div>
                                     <div><i className="fas fa-tint fa-fw" style={{"color": "#868B94"}}></i> <span className="ms-1"> {meteoObj.relative_humidity}% </span></div>
-                                    {/* <div><i className="fas fa-sun fa-fw" style={{"color": "#868B94"}}></i> <span className="ms-1"> 0.2h </span></div> */}
                                 </div>
                                 <div>
                                     <img src={meteoObj.weather_icon.icon} width="100px" alt="img-weather" />
