@@ -4,18 +4,20 @@ import { fetchDayForecastInstance } from '../services/meteo-api';
 import { useState, useEffect } from 'react';
 
 const MeteoPage = () => {
-    var today = new Date();
-    var dd = String(today.getDate()).padStart(2, '0');
-    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-    var yyyy = today.getFullYear();
-    const dateOfToday = `${yyyy}-${mm}-${dd}`;
-    console.log(dateOfToday);
+    // var today = new Date();
+    // var dd = String(today.getDate()).padStart(2, '0');
+    // var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    // var yyyy = today.getFullYear();
+    // const dateOfToday = `${yyyy}-${mm}-${dd}`;
+    // console.log(dateOfToday);
+    const hour = new Date().getHours();
+    const mins = new Date().getMinutes();
     const [meteoObj, setMeteoObj] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     
     useEffect(() => {
         setIsLoading(true);
-        fetchDayForecastInstance(dateOfToday)
+        fetchDayForecastInstance()
         .then(res => {
             console.log(res);
             setMeteoObj(res[0]);
@@ -24,7 +26,7 @@ const MeteoPage = () => {
             console.log(err);
             setIsLoading(false);
         });
-    }, [dateOfToday]);
+    }, []);
 
     return (
         <React.Fragment>
@@ -44,7 +46,7 @@ const MeteoPage = () => {
 
                                 <div className="d-flex">
                                 <h6 className="flex-grow-1">Torino Oggi</h6>
-                                <h6>15:07</h6>
+                                <h6>{hour}:{mins}</h6>
                                 </div>
 
                                 <div className="d-flex flex-column text-center mt-5 mb-4">

@@ -18,6 +18,7 @@ const LandingPage = () => {
                 <Routes>
                     <Route path="/today" element={<MeteoPage />} />
                 </Routes>
+                
             </div>
         </React.Fragment>
     );
