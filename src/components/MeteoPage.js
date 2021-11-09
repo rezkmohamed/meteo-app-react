@@ -2,7 +2,6 @@ import React from 'react';
 import classes from "./MeteoPage.module.css";
 import { fetchDayForecastInstance } from '../services/meteo-api';
 import { useState, useEffect } from 'react';
-import Navbar from './UI/Navbar';
 
 const MeteoPage = () => {
     var today = new Date();
@@ -19,7 +18,7 @@ const MeteoPage = () => {
         fetchDayForecastInstance(dateOfToday)
         .then(res => {
             console.log(res);
-            setMeteoObj(res);
+            setMeteoObj(res[0]);
             setIsLoading(false);
         }).catch(err => {
             console.log(err);
@@ -49,18 +48,18 @@ const MeteoPage = () => {
                                 </div>
 
                                 <div className="d-flex flex-column text-center mt-5 mb-4">
-                                <h6 className="display-4 mb-0 font-weight-bold" style={{"color": "#1C2331"}}> 13°C </h6>
-                                <span className="small" style={{"color": "#868B94"}}>Stormy</span>
+                                <h6 className="display-4 mb-0 font-weight-bold" style={{"color": "#1C2331"}}> {meteoObj.temperature}°C </h6>
+                                {/* <span className="small" style={{"color": "#868B94"}}>Stormy</span> */}
                                 </div>
 
                                 <div className="d-flex align-items-center">
                                 <div className="flex-grow-1" style={{"fontSize": "1rem"}}>
-                                    <div><i className="fas fa-wind fa-fw" style={{"color": "#868B94"}}></i> <span className="ms-1"> 40 km/h </span></div>
-                                    <div><i className="fas fa-tint fa-fw" style={{"color": "#868B94"}}></i> <span className="ms-1"> 84% </span></div>
-                                    <div><i className="fas fa-sun fa-fw" style={{"color": "#868B94"}}></i> <span className="ms-1"> 0.2h </span></div>
+                                    <div><i className="fas fa-wind fa-fw" style={{"color": "#868B94"}}></i> <span className="ms-1"> {meteoObj.wind_strength} km/h </span></div>
+                                    <div><i className="fas fa-tint fa-fw" style={{"color": "#868B94"}}></i> <span className="ms-1"> {meteoObj.relative_humidity}% </span></div>
+                                    {/* <div><i className="fas fa-sun fa-fw" style={{"color": "#868B94"}}></i> <span className="ms-1"> 0.2h </span></div> */}
                                 </div>
                                 <div>
-                                    <img src={meteoObj.image24} width="100px" alt="img-weather" />
+                                    <img src={meteoObj.weather_icon.icon} width="100px" alt="img-weather" />
                                 </div>
                                 </div>
                             </div>

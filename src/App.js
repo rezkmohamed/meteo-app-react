@@ -2,7 +2,6 @@ import './App.css';
 import React from 'react';
 import LandingPage from './components/LandingPage';
 import { Route, Routes } from 'react-router-dom';
-import MeteoPage from './components/MeteoPage';
 
 /**
  * QUESTA E' LA VERSIONE 6+ DI react-router-dom.

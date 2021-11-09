@@ -1,7 +1,7 @@
-export const fetchDayForecastInstance = (date) => {
-    const urlBase = "https://www.torinometeo.org/api/v1/forecast/day";
+export const fetchDayForecastInstance = () => {
+    const urlBase = "https://www.torinometeo.org/api/v1/realtime/data/";
     const fetchDayForecastInstanceReq = async () => {
-        const response = await fetch(`${urlBase}/${date}`);
+        const response = await fetch(`${urlBase}`);
         if(!response.ok){
             console.log('error: ' + response.status);
             throw new Error('Error: ' + response.status);
