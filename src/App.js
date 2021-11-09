@@ -1,11 +1,19 @@
 import './App.css';
 import React from 'react';
 import LandingPage from './components/LandingPage';
+import { Route, Routes } from 'react-router-dom';
 
-function App() {
+/**
+ * QUESTA E' LA VERSIONE 6+ DI react-router-dom.
+ * PER QUESTO MOTIVO E' LEGGERMENTE DIVERSO DAI VECCHI PROGETTI.
+ */
+
+const App = () => {
   return (
     <React.Fragment>
-      <LandingPage />
+      <Routes>
+        <Route path="/" exact element={<LandingPage />} />
+      </Routes>
     </React.Fragment>
   );
 }

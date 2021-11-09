@@ -1,5 +1,6 @@
 import React from 'react';
 import classes from "./LandingPage.module.css";
+import Navbar from './UI/Navbar';
 
 const LandingPage = (props) => {
     var today = new Date();
@@ -10,8 +11,8 @@ const LandingPage = (props) => {
 
     return (
         <React.Fragment>
+            <Navbar />
             <div className={classes.main}>
-
             </div>
         </React.Fragment>
     );
