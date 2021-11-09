@@ -11,8 +11,8 @@ const LandingPage = (props) => {
 
     return (
         <React.Fragment>
-            <Navbar />
             <div className={classes.main}>
+                <Navbar />
             </div>
         </React.Fragment>
     );
